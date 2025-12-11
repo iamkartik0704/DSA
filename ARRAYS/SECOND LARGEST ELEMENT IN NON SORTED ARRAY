@@ -1,0 +1,31 @@
+// Second Largest Element without sorting
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int secondLargestElement(vector<int>& nums) {
+        if(nums.size()<2) return -1;
+
+        int max_element=INT_MIN;
+        int second_largest=INT_MIN;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if(nums[i]>max_element){
+                second_largest = max_element;
+                max_element=nums[i];
+            }
+// put the condition of checking again eith max_element because nums[i] coukld have been equal to it as well
+            else if(nums[i]>second_largest && nums[i]<max_element){
+                second_largest=nums[i];
+        }
+        
+    }
+        if(second_largest==INT_MIN) return -1;
+        else return second_largest;
+      
+    }
+};
+
+// time complexity = O(n)
+// space complexity = O(1)
